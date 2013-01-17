@@ -38,9 +38,9 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"></script>
   <![endif]-->
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
   <!--<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.3.1/less.min.js"></script>-->
   <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
@@ -48,9 +48,9 @@
   <script src="js/fastclick.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/bootstrap-timepicker.js"></script>
-  <script src="js/angular-strap.min.js?v=0.6.1"></script>
+  <script src="js/angular-strap.min.js?v=0.6.2"></script>
 
-  <script src="js/app.js?v=0.6.1"></script>
+  <script src="js/app.js?v=0.6.2"></script>
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -70,8 +70,8 @@
           <span class="icon-bar"></span>
         </button>
         <div class="btn-toolbar btn-group pull-right">
-          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.6.1)</small></a>
-          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.min.js"><i class="icon-download-alt icon-white"></i>&nbsp;prod <small>(v0.6.1)</small></a>
+          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.6.2)</small></a>
+          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.min.js"><i class="icon-download-alt icon-white"></i>&nbsp;prod <small>(v0.6.2)</small></a>
         </div>
         <a class="travis-btn" href="//travis-ci.org/#!/mgcrea/angular-strap" target="_blank">
           <img src="//secure.travis-ci.org/mgcrea/angular-strap.png?branch=master"/>
@@ -138,6 +138,7 @@
         <li><a href="#navbar"><i class="icon-chevron-right"></i> Navbar</a></li>
         <li><a href="#tooltip"><i class="icon-chevron-right"></i> Tooltip</a></li>
         <li><a href="#popover"><i class="icon-chevron-right"></i> Popover</a></li>
+        <li><a href="#alerts"><i class="icon-chevron-right"></i> Alert</a></li>
         <li><a href="#buttons"><i class="icon-chevron-right"></i> Buttons</a></li>
         <li><a href="#checkboxes"><i class="icon-chevron-right"></i> Checkboxes</a></li>
         <li><a href="#radios"><i class="icon-chevron-right"></i> Radios</a></li>
@@ -341,6 +342,38 @@
         </div>
       </section>
 
+      <section id="alerts">
+        <div class="page-header">
+          <h1>Alert <small><a href="//github.com/mgcrea/angular-strap/blob/master/src/directives/alert.js" target="_blank">directives/alert.js</a></small></h1>
+        </div>
+        <h2>Overview and examples</h2>
+        <p>Build a custom alert with the <code>bs-alert</code> attribute.</p>
+        <div class="bs-docs-example">
+          <pre>alert: {{alert | json}}</pre>
+          <div class="well">
+            <div class="btn-toolbar">
+              <label class="label" style="margin-right:1em">alert.type</label>
+              <div class="btn-group" ng-model="alert.type" bs-buttons-radio>
+                <button type="button" class="btn" value="">basic</button>
+                <button type="button" class="btn" value="error">error</button>
+                <button type="button" class="btn" value="success">success</button>
+                <button type="button" class="btn" value="info">info</button>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="alert fade in" bs-alert="alert"></div>
+        </div>
+        <pre class="prettyprint linenums" ng-non-bindable>
+&lt;!-- Alert bound to an object --&gt;
+&lt;div class="alert fade in" bs-alert="alert"&gt;&lt;/div&gt;
+
+&lt;!-- Basic static alert --&gt;
+&lt;div class="alert fade in" bs-alert&gt;&lt;strong&gt;Hey!&lt;/strong&gt;&nbsp;This is a static alert.&lt;/div&gt;
+
+        </pre>
+     </section>
+
       <section id="buttons">
         <div class="page-header">
           <h1>Button <small><a href="//github.com/mgcrea/angular-strap/blob/master/src/directives/button.js" target="_blank">directives/button.js</a></small></h1>
@@ -435,10 +468,9 @@
   &lt;button type="button" class="btn" value="right"&gt;...&lt;/button&gt;
 &lt;/div&gt;
         </pre>
-
       </section>
 
-       <section id="typeahead">
+      <section id="typeahead">
         <div class="page-header">
           <h1>Typeahead <small><a href="//github.com/mgcrea/angular-strap/blob/master/src/directives/typeahead.js" target="_blank">directives/typeahead.js</a></small></h1>
         </div>
