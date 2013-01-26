@@ -1,6 +1,6 @@
 /**
  * AngularStrap - Twitter Bootstrap directives for AngularJS
- * @version v0.6.2 - 2013-01-17
+ * @version v0.6.3 - 2013-01-25
  * @link http://mgcrea.github.com/angular-strap
  * @author Olivier Louvignes
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -23,21 +23,41 @@ angular.module('$strap.directives')
 		link: function postLink(scope, element, attrs) {
 
 			scope.$watch(attrs.bsAlert, function(newValue, oldValue) {
+
+				if(typeof newValue === 'undefined') {
+					if(typeof oldValue !== 'undefined') {
+						element.remove();
+					}
+					return;
+				}
+
+				// Set alert content
 				element.html((newValue.title ? '<strong>' + newValue.title + '</strong>&nbsp;' : '') + newValue.content || '');
+
 				// Compile alert content
 				$timeout(function(){
 					$compile(element.contents())(scope);
 				});
+
+				// Add proper class
 				if(newValue.type || oldValue.type) {
 					oldValue.type && element.removeClass('alert-' + oldValue.type);
 					newValue.type && element.addClass('alert-' + newValue.type);
 				}
+
+				// Setup close button
 				if(newValue.close !== false) {
 					element.prepend('<button type="button" class="close" data-dismiss="alert">&times;</button>');
 				}
+
 			}, true);
 
-			element.alert();
+			// For basic alerts
+			if(!attrs.bsAlert && attrs.close !== '0') {
+				element.prepend('<button type="button" class="close" data-dismiss="alert">&times;</button>');
+			}
+
+			element.addClass('alert').alert();
 
 			// element.on('close', function() {
 			// });
@@ -183,7 +203,7 @@ angular.module('$strap.directives')
 
 					iElement.on('click.button.data-api', function (ev) {
 						scope.$apply(function () {
-							controller.$setViewValue($(ev.target).attr('value'));
+							controller.$setViewValue($(ev.target).closest('button').attr('value'));
 						});
 					});
 
@@ -409,7 +429,6 @@ angular.module('$strap.directives')
 
 }]);
 
-
 angular.module('$strap.directives')
 
 .directive('bsModal', ['$parse', '$compile', '$http', '$timeout', '$q', '$templateCache', function($parse, $compile, $http, $timeout, $q, $templateCache) {
@@ -433,7 +452,7 @@ angular.module('$strap.directives')
 
 				// Build modal object
 				var id = getter(scope).replace('.html', '').replace(/\//g, '-').replace(/\./g, '-') + '-' + scope.$id;
-				var $modal = $('<div></div>').attr('id', id).attr('tabindex', -1).addClass('modal hide fade').html(template);
+				var $modal = $('<div></div>').attr('id', id).attr('tabindex', -1).attr('data-backdrop', element.attr('data-backdrop') || true).attr('data-keyboard', element.attr('data-keyboard') || true).addClass('modal hide fade').html(template);
 				$('body').append($modal);
 
 				// Configure element
@@ -777,7 +796,6 @@ angular.module('$strap.directives')
 
 }]);
 
-
 angular.module('$strap.directives')
 
 .directive('bsTypeahead', ['$parse', function($parse) {
@@ -801,7 +819,7 @@ angular.module('$strap.directives')
 
 			element.attr('data-provide', 'typeahead');
 			element.typeahead({
-				source: function(query) { return value; },
+				source: function(query) { return angular.isFunction(value) ? value.apply(null, arguments) : value; },
 				minLength: attrs.minLength || 1,
 				items: attrs.items,
 				updater: function(value) {
@@ -830,8 +848,10 @@ angular.module('$strap.directives')
 
 			// Support 0-minLength
 			if(attrs.minLength === "0") {
-				setTimeout(function() { // Push to the event loop to make sure element.typeahead is defined
-					element.on('focus', element.typeahead.bind(element, 'lookup'));
+				setTimeout(function() { // Push to the event loop to make sure element.typeahead is defined (breaks tests otherwise)
+					element.on('focus', function() {
+						setTimeout(element.typeahead.bind(element, 'lookup'), 200);
+					});
 				});
 			}
 
