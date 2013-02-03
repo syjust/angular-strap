@@ -43,20 +43,36 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
   <!--<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.3.1/less.min.js"></script>-->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
 
   <script src="js/fastclick.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/bootstrap-timepicker.js"></script>
-  <script src="js/angular-strap.min.js?v=0.6.3"></script>
+  <script src="js/angular-strap.min.js?v=0.6.4"></script>
 
-  <script src="js/app.js?v=0.6.3"></script>
+  <script src="js/app.js?v=0.6.4"></script>
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+<script type="text/ng-template" id="get-started">
+  <p>AngularStrap requires <code>jQuery</code> & <code>Bootstrap</code>.</p>
+  <p>Just inject <code>$strap.directives</code> module.</p>
+  <pre class="prettyprint linenums" ng-non-bindable>
+&lt;!-- 1. Include the required libraries (from cdn or local) --&gt;
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js">&lt;/script&gt;
+&lt;script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js">&lt;/script&gt;
+&lt;script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js">&lt;/script&gt;
+&lt;script src="//mgcrea.github.com/angular-strap/js/angular-strap.js">&lt;/script&gt;
+
+&lt;!-- 2. Inject the $strap.directives into your app module --&gt;
+var app = angular.module('angularjs-starter', ['$strap.directives']);
+
+  </pre>
+</script>
 
   <!-- Navbar
   ================================================== -->
@@ -69,9 +85,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a id="get-started-btn" class="btn btn-small" bs-popover="'get-started'" data-title="Get Started" data-class="modal-wide" data-placement="bottom"><i class="icon-download-alt icon-white"></i>&nbsp;get started</small></a>
         <div class="btn-toolbar btn-group pull-right">
-          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.6.3)</small></a>
-          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.min.js"><i class="icon-download-alt icon-white"></i>&nbsp;prod <small>(v0.6.3)</small></a>
+          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.6.4)</small></a>
+          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.min.js"><i class="icon-download-alt icon-white"></i>&nbsp;prod <small>(v0.6.4)</small></a>
         </div>
         <a class="travis-btn" href="//travis-ci.org/#!/mgcrea/angular-strap" target="_blank">
           <img src="//secure.travis-ci.org/mgcrea/angular-strap.png?branch=master"/>
@@ -133,7 +150,7 @@
 
     <div class="span3 bs-docs-sidebar">
       <ul class="nav nav-list bs-docs-sidenav">
-        <li class="active"><a href="#modal"><i class="icon-chevron-right"></i> Modal</a></li>
+        <li><a href="#modal"><i class="icon-chevron-right"></i> Modal</a></li>
         <li><a href="#dropdown"><i class="icon-chevron-right"></i> Dropdown</a></li>
         <li><a href="#navbar"><i class="icon-chevron-right"></i> Navbar</a></li>
         <li><a href="#tooltip"><i class="icon-chevron-right"></i> Tooltip</a></li>
