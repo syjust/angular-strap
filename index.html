@@ -278,6 +278,10 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
   &lt;/div&gt;
 &lt;/div&gt;
         </pre>
+        <div class="alert alert-info">
+          <strong>Heads up!</strong>
+          The directives also supports <code>HTML5 mode</code>, you just have to drop the dashes.
+        </div>
       </section>
 
       <section id="tooltip">
@@ -502,6 +506,16 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         </div>
         <pre class="prettyprint linenums" ng-non-bindable>
 &lt;input type="text" ng-model="typeaheadValue" bs-typeahead="typeahead"&gt;
+
+&lt;!-- You can also use a function --&gt;
+&lt;input type="text" ng-model="typeaheadFn" bs-typeahead="typeahead"&gt;
+
+&lt;!-- Function defined in your controller  --&gt;
+$scope.typeaheadFn = function(query, what) {
+  return $.map($scope.typeahead, function(country) {
+    return country + '_1';
+  });
+}
         </pre>
      </section>
 
