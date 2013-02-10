@@ -201,7 +201,6 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
   &lt;button type="button" class="btn" ng-click="dismiss()"&gt;Close&lt;/button&gt;
   &lt;button class="btn btn-primary" ng-click="modal.saved=true;dismiss()"&gt;Save changes&lt;/button&gt;
 &lt;/div&gt;
-
         </pre>
         <div class="alert alert-info">
           <strong>Heads up!</strong>
@@ -401,6 +400,10 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
   &lt;div class="alert fade in" ng-repeat="alert in alerts" bs-alert="alert"&gt;&lt;/div&gt;
 &lt;/div&gt;
         </pre>
+        <div class="alert alert-info">
+          <strong>Heads up!</strong>
+          You can use <code>alert.closed</code> to toggle the visibility of your alerts.
+        </div>
      </section>
 
       <section id="buttons">
