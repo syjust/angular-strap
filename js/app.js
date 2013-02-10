@@ -48,7 +48,8 @@ app.controller('StrapCtrl', function($scope) {
 	$scope.modal = {content: 'Hello Modal', saved: false};
 	$scope.tooltip = {title: "Hello Tooltip<br />This is a multiline message!", checked: false};
 	$scope.popover = {content: "Hello Popover<br />This is a multiline message!", saved: false};
-	$scope.alert = {type:'error', title: 'Holy guacamole!', content: 'Best check yo self, you\'re not looking too good.<br><br><pre>2 + 3 = {{ 2 + 3 }}</pre>'};
+	$scope.alerts = [{type:'error', title: 'Holy guacamole!', content: 'Best check yo self, you\'re not looking too good.<br><br><pre>2 + 3 = {{ 2 + 3 }}</pre>'}];
+	$scope.addAlert = function() { $scope.alerts.push({type: 'info', title: 'Heads up!', content: 'To prevent databinding issues, <em>"the rule of thumb is, if you﻿ use <code>ng-model</code> there has to be a dot somewhere." Miško Hevery</em>'}); };
 	$scope.button = {active: true};
 	$scope.buttonSelect = {price: '89,99', currency: '€'};
 	$scope.checkbox = {left: false, middle: true, right: false};

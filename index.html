@@ -48,9 +48,9 @@
   <script src="js/fastclick.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/bootstrap-timepicker.js"></script>
-  <script src="js/angular-strap.min.js?v=0.6.4"></script>
+  <script src="js/angular-strap.min.js?v=0.6.5"></script>
 
-  <script src="js/app.js?v=0.6.4"></script>
+  <script src="js/app.js?v=0.6.5"></script>
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -63,9 +63,9 @@
   <p>Just inject <code>$strap.directives</code> module.</p>
   <pre class="prettyprint linenums" ng-non-bindable>
 &lt;!-- 1. Include the required libraries (from cdn or local) --&gt;
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js">&lt;/script&gt;
-&lt;script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js">&lt;/script&gt;
-&lt;script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js">&lt;/script&gt;
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">&lt;/script&gt;
+&lt;script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/bootstrap.min.js">&lt;/script&gt;
+&lt;script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js">&lt;/script&gt;
 &lt;script src="//mgcrea.github.com/angular-strap/js/angular-strap.js">&lt;/script&gt;
 
 &lt;!-- 2. Inject the $strap.directives into your app module --&gt;
@@ -87,7 +87,7 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         </button>
         <!-- <a id="get-started-btn" class="btn btn-small" bs-popover="'get-started'" data-title="Get Started" data-class="modal-wide" data-placement="bottom"><i class="icon-download-alt icon-white"></i>&nbsp;get started</small></a> -->
         <div class="btn-toolbar btn-group pull-right">
-          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.6.4)</small></a>
+          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.6.5)</small></a>
           <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.min.js"><i class="icon-download-alt icon-white"></i>&nbsp;prod <small>(3.6K)</small></a>
         </div>
         <a class="travis-btn" href="//travis-ci.org/#!/mgcrea/angular-strap" target="_blank">
@@ -371,28 +371,35 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         <h2>Overview and examples</h2>
         <p>Build a custom alert with the <code>bs-alert</code> attribute.</p>
         <div class="bs-docs-example">
-          <pre>alert: {{alert | json}}</pre>
+          <pre>alert: {{alerts | json}}</pre>
           <div class="well">
             <div class="btn-toolbar">
-              <label class="label" style="margin-right:1em">alert.type</label>
-              <div class="btn-group" ng-model="alert.type" bs-buttons-radio>
+              <label class="label" style="margin-right:1em">alerts[0].type</label>
+              <div class="btn-group" ng-model="alerts[0].type" bs-buttons-radio>
                 <button type="button" class="btn" value="">basic</button>
                 <button type="button" class="btn" value="error">error</button>
                 <button type="button" class="btn" value="success">success</button>
                 <button type="button" class="btn" value="info">info</button>
               </div>
             </div>
+            <button type="button" class="btn btn-primary" ng-click="addAlert()"><i class="icon-plus icon-white"></i>&nbsp;Add alert</button>
           </div>
           <hr />
-          <div class="alert fade in" bs-alert="alert"></div>
+          <div class="alerts">
+            <div class="alert fade in" ng-repeat="alert in alerts" bs-alert="alert"></div>
+          </div>
         </div>
         <pre class="prettyprint linenums" ng-non-bindable>
-&lt;!-- Alert bound to an object --&gt;
-&lt;div class="alert fade in" bs-alert="alert"&gt;&lt;/div&gt;
-
-&lt;!-- Basic static alert --&gt;
+&lt;!-- Basic static alert (default bootstrap behavior) --&gt;
 &lt;div class="alert fade in" bs-alert&gt;&lt;strong&gt;Hey!&lt;/strong&gt;&nbsp;This is a static alert.&lt;/div&gt;
 
+&lt;!-- Alert bound to an object (alert.closed is set to true on close) --&gt;
+&lt;div class="alert fade in" bs-alert="alert"&gt;&lt;/div&gt;
+
+&lt;!-- Use an array stack (alert is removed from the stack on close) --&gt;
+&lt;div class="alerts"&gt;
+  &lt;div class="alert fade in" ng-repeat="alert in alerts" bs-alert="alert"&gt;&lt;/div&gt;
+&lt;/div&gt;
         </pre>
      </section>
 
