@@ -370,7 +370,7 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         <h2>Overview and examples</h2>
         <p>Build a custom alert with the <code>bs-alert</code> attribute.</p>
         <div class="bs-docs-example">
-          <pre>alert: {{alerts | json}}</pre>
+          <pre>alerts: {{alerts | json}}</pre>
           <div class="well">
             <div class="btn-toolbar">
               <label class="label" style="margin-right:1em">alerts[0].type</label>
@@ -385,19 +385,19 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
           </div>
           <hr />
           <div class="alerts">
-            <div class="alert fade in" ng-repeat="alert in alerts" bs-alert="alert"></div>
+            <div class="alert fade" ng-repeat="alert in alerts" bs-alert="alert"></div>
           </div>
         </div>
         <pre class="prettyprint linenums" ng-non-bindable>
 &lt;!-- Basic static alert (default bootstrap behavior) --&gt;
-&lt;div class="alert fade in" bs-alert&gt;&lt;strong&gt;Hey!&lt;/strong&gt;&nbsp;This is a static alert.&lt;/div&gt;
+&lt;div class="alert fade" bs-alert&gt;&lt;strong&gt;Hey!&lt;/strong&gt;&nbsp;This is a static alert.&lt;/div&gt;
 
 &lt;!-- Alert bound to an object (alert.closed is set to true on close) --&gt;
-&lt;div class="alert fade in" bs-alert="alert"&gt;&lt;/div&gt;
+&lt;div class="alert fade" bs-alert="alert"&gt;&lt;/div&gt;
 
 &lt;!-- Use an array stack (alert is removed from the stack on close) --&gt;
 &lt;div class="alerts"&gt;
-  &lt;div class="alert fade in" ng-repeat="alert in alerts" bs-alert="alert"&gt;&lt;/div&gt;
+  &lt;div class="alert fade" ng-repeat="alert in alerts" bs-alert="alert"&gt;&lt;/div&gt;
 &lt;/div&gt;
         </pre>
         <div class="alert alert-info">
