@@ -46,9 +46,9 @@
   <script src="js/fastclick.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/bootstrap-timepicker.js"></script>
-  <script src="js/angular-strap.min.js?v=0.6.6"></script>
+  <script src="js/angular-strap.min.js?v=0.7.0"></script>
 
-  <script src="js/app.js?v=0.6.6"></script>
+  <script src="js/app.js?v=0.7.0"></script>
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -85,8 +85,8 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         </button>
         <!-- <a id="get-started-btn" class="btn btn-small" bs-popover="'get-started'" data-title="Get Started" data-class="modal-wide" data-placement="bottom"><i class="icon-download-alt icon-white"></i>&nbsp;get started</small></a> -->
         <div class="btn-toolbar btn-group pull-right">
-          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.6.6)</small></a>
-          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.min.js"><i class="icon-download-alt icon-white"></i>&nbsp;prod <small>(3.6K)</small></a>
+          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.7.0)</small></a>
+          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.min.js"><i class="icon-download-alt icon-white"></i>&nbsp;prod <small>(3.9K)</small></a>
         </div>
         <a class="travis-btn" href="//travis-ci.org/#!/mgcrea/angular-strap" target="_blank">
           <img src="//secure.travis-ci.org/mgcrea/angular-strap.png?branch=master"/>
@@ -151,6 +151,7 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         <li><a href="#modal"><i class="icon-chevron-right"></i> Modal</a></li>
         <li><a href="#dropdown"><i class="icon-chevron-right"></i> Dropdown</a></li>
         <li><a href="#navbar"><i class="icon-chevron-right"></i> Navbar</a></li>
+        <li><a href="#tab"><i class="icon-chevron-right"></i> Tab</a></li>
         <li><a href="#tooltip"><i class="icon-chevron-right"></i> Tooltip</a></li>
         <li><a href="#popover"><i class="icon-chevron-right"></i> Popover</a></li>
         <li><a href="#alerts"><i class="icon-chevron-right"></i> Alert</a></li>
@@ -298,6 +299,36 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
           <strong>Heads up!</strong>
           The directives also supports <code>HTML5 mode</code>, you just have to drop the dashes.
         </div>
+      </section>
+
+      <section id="tab">
+        <div class="page-header">
+          <h1>Tab <small><a href="//github.com/mgcrea/angular-strap/blob/master/src/directives/tab.js" target="_blank">directives/tab.js</a></small></h1>
+        </div>
+        <h2>Overview and examples</h2>
+        <p>Create tabs interfaces by appending a <code>bs-tabs</code> attribute to a div container.</p>
+        <p>Use the <code>data-tab</code> attribute on children divs to set the tab title.</p>
+        <div class="bs-docs-example">
+          <pre>tab: {{tab | json}}</pre>
+          <div bs-tabs>
+            <div class="fade active" data-tab="'Home'">
+              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p>
+            </div>
+            <div class="fade" data-tab="'Profile'">
+              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.</p>
+            </div>
+            <div class="fade" data-tab="tab.title">
+              <p>{{tab.content}}</p>
+            </div>
+          </div>
+        </div>
+        <pre class="prettyprint linenums" ng-non-bindable>
+&lt;div bs-tabs&gt;
+  &lt;div class="fade active" data-tab="'Home'"&gt;&lt;p&gt;Static tab content A&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="fade" data-tab="'Profile'"&gt;&lt;p&gt;Static tab content B&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="fade" data-tab="tab.title"&gt;&lt;p&gt;{{tab.content}}&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+        </pre>
       </section>
 
       <section id="tooltip">

@@ -46,6 +46,7 @@ app.controller('StrapCtrl', function($scope) {
 	];
 	$scope.formattedDropdown = "[\n  {text: 'Another action', href:'#anotherAction'},\n  {text: 'Something else here', href:'#'},\n  {divider: true},\n  {text: 'Separated link', href:'#', submenu: [\n    {text: 'Second level link', href: '#'},\n    {text: 'Second level link 2', href: '#'}\n  ]}\n]";
 	$scope.modal = {content: 'Hello Modal', saved: false};
+	$scope.tab = {title:'About', content: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'}
 	$scope.tooltip = {title: "Hello Tooltip<br />This is a multiline message!", checked: false};
 	$scope.popover = {content: "Hello Popover<br />This is a multiline message!", saved: false};
 	$scope.alerts = [{type:'success', title: 'Holy guacamole!', content: 'Best check yo self, you\'re not looking too good.<br><br><pre>2 + 3 = {{ 2 + 3 }}</pre>'}];
