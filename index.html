@@ -559,7 +559,9 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         <div class="bs-docs-example">
           <pre>value: {{typeaheadValue}}<br /><br />typeahead: {{typeahead}}</pre>
           <div class="well">
-            <input type="text" class="span3" data-items="4" ng-model="typeaheadValue" bs-typeahead="typeahead">
+            <input type="text" class="span3" data-items="4" ng-model="typeaheadValue" bs-typeahead="typeahead" placeholder="Typeahead">
+            <br>
+            <input type="text" class="span3" data-items="4" data-min-length="0" ng-model="typeaheadValueBis" bs-typeahead="typeahead" placeholder="Typeahead with minLength=0">
           </div>
         </div>
         <pre class="prettyprint linenums" ng-non-bindable>
@@ -582,6 +584,10 @@ $scope.typeaheadFn = function(query, callback) {
   });
 }
         </pre>
+        <div class="alert alert-info">
+          <strong>Heads up!</strong>
+          You can use a the <code>data-min-length</code> attribute to either show the popup right away (minLength=0) or only after a specific number of chars have been typed in.
+        </div>
      </section>
 
       <section id="datepicker">
