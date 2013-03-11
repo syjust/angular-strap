@@ -568,10 +568,17 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
 &lt;!-- You can also use a function --&gt;
 &lt;input type="text" ng-model="typeaheadValue" bs-typeahead="typeaheadFn"&gt;
 
-&lt;!-- Function defined in your controller  --&gt;
-$scope.typeaheadFn = function(query, what) {
+&lt;!-- Function defined in your controller --&gt;
+$scope.typeaheadFn = function(query) {
   return $.map($scope.typeahead, function(country) {
     return country + '_1';
+  });
+}
+
+&lt;!-- Async function defined in your controller  --&gt;
+$scope.typeaheadFn = function(query, callback) {
+  $http.get('/stations/autocomplete?term='+query).success(function(stations) {
+    callback(stations); // This will automatically open the popup with retrieved results
   });
 }
         </pre>
