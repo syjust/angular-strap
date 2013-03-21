@@ -643,6 +643,14 @@ $scope.typeaheadFn = function(query, callback) {
   &lt;input type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker&gt;
   &lt;button type="button" class="btn" data-toggle="datepicker"&gt;&lt;i class="icon-calendar"&gt;&lt;/i&gt;&lt;/button&gt;
 &lt;/div&gt;
+
+&lt;!-- You can use the global $strap.config to set defaults --&gt;
+app.value('$strap.config', {
+  datepicker: {
+    language: 'fr',
+    format: 'M d, yyyy'
+  }
+});
         </pre>
         <div class="alert alert-info">
           <strong>Heads up!</strong>
