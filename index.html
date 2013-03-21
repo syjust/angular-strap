@@ -46,9 +46,9 @@
   <script src="vendor/bootstrap-datepicker.js"></script>
   <script src="vendor/bootstrap-timepicker.js"></script>
   <script src="js/fastclick.min.js"></script>
-  <script src="js/angular-strap.min.js?v=0.7.0"></script>
+  <script src="js/angular-strap.min.js?v=0.7.1"></script>
 
-  <script src="js/app.js?v=0.7.0"></script>
+  <script src="js/app.js?v=0.7.1"></script>
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -307,28 +307,58 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         </div>
         <h2>Overview and examples</h2>
         <p>Create tabs interfaces by appending a <code>bs-tabs</code> attribute to a div container.</p>
-        <p>Use the <code>data-tab</code> attribute on children divs to set the tab title.</p>
+        <p>You can either use plain static/dynamic html markup or a pure javascript object.</p>
+
+        <h3>Markup-driven tabs</h3>
+        <p>Use the <code>data-title</code> attribute on children divs to initialize the tab title.</p>
         <div class="bs-docs-example">
-          <pre>tab: {{tab | json}}</pre>
-          <div bs-tabs>
-            <div class="fade active" data-tab="'Home'">
+          <pre>tab: {{singleTab | json}}</pre>
+          <div data-fade="1" bs-tabs>
+            <div data-title="'Home'">
               <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p>
             </div>
-            <div class="fade" data-tab="'Profile'">
+            <div data-title="'Profile'">
               <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.</p>
             </div>
-            <div class="fade" data-tab="tab.title">
-              <p>{{tab.content}}</p>
+            <div data-title="singleTab.title">
+              <p>{{singleTab.content}}</p>
             </div>
           </div>
         </div>
         <pre class="prettyprint linenums" ng-non-bindable>
-&lt;div bs-tabs&gt;
-  &lt;div class="fade active" data-tab="'Home'"&gt;&lt;p&gt;Static tab content A&lt;/p&gt;&lt;/div&gt;
-  &lt;div class="fade" data-tab="'Profile'"&gt;&lt;p&gt;Static tab content B&lt;/p&gt;&lt;/div&gt;
-  &lt;div class="fade" data-tab="tab.title"&gt;&lt;p&gt;{{tab.content}}&lt;/p&gt;&lt;/div&gt;
+&lt;div data-fade="1" bs-tabs&gt;
+  &lt;div data-title="'Home'"&gt;&lt;p&gt;Static tab content A&lt;/p&gt;&lt;/div&gt;
+  &lt;div data-title="'Profile'"&gt;&lt;p&gt;Static tab content B&lt;/p&gt;&lt;/div&gt;
+  &lt;div data-title="tab.title"&gt;&lt;p&gt;{{tab.content}}&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
         </pre>
+        <div class="alert alert-info">
+          <strong>Heads up!</strong>
+          You can use fading tabs with an optional <code>data-fade</code> attribute.
+        </div>
+
+        <h3>Object-driven tabs</h3>
+        <p>Use the <code>{title: "Home", content: "Raw denim you ..."}</code> attribute on children divs to initialize the tab title.</p>
+        <div class="bs-docs-example">
+          <pre>tabs: {{tabs | json}}</pre>
+          <div data-fade="1" ng-model="tab.activeTab" bs-tabs="tabs"></div>
+          <br>
+          <div class="well">
+            <code>tab.activeTab=<span>{{tab.activeTab}}</span></code>
+            <div class="btn-group" ng-model="tab.activeTab" bs-buttons-radio>
+              <button type="button" class="btn btn-primary" value="0">First</button>
+              <button type="button" class="btn btn-primary" value="1">Second</button>
+              <button type="button" class="btn btn-primary" value="2">Third</button>
+            </div>
+          </div>
+        </div>
+        <pre class="prettyprint linenums" ng-non-bindable>
+&lt;div data-fade="1" ng-model="tab.activeTab" bs-tabs&gt;&lt;/div&gt;
+        </pre>
+        <div class="alert alert-info">
+          <strong>Heads up!</strong>
+          You can programmaticaly switch tab with an optional <code>ngModel</code> attribute.<br>You must use dot-notation (ie. <code>myObj.myProp</code>) to make the two-way databinding work.
+        </div>
       </section>
 
       <section id="tooltip">
