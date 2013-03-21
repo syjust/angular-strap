@@ -65,6 +65,14 @@ body > .navbar .travis-btn {
 .bs-docs-social ul.bs-docs-social-buttons li {
   padding: 5px 0px;
 }
+.btn-plnkr {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+.btn-small.btn-plnkr {
+  top: 7px;
+}
 .authors-social-buttons {
   vertical-align: middle;
   display: inline-block;
