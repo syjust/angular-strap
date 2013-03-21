@@ -197,7 +197,7 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         <p>Both <code>$scope.show()</code> and <code>$scope.dismiss()</code> are available inside the modal to toggle its visibility.</p>
         <div class="bs-docs-example">
           <a href="//plnkr.co/edit/xKP5PW3Dco1CczmCuuVN?p=preview" target="_blank" class="btn btn-small btn-plnkr"><i class="icon-pencil"></i> Edit in plunker</a>
-          <pre>modal: {{modal | json}}</pre>
+          <pre>$scope.modal: {{modal | json}}</pre>
           <div class="well">
             <button type="button" class="btn btn-large btn-primary" bs-modal="'partials/modal.html'">Click to open modal</button>
           </div>
@@ -237,7 +237,7 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         <p>Use any element to trigger a dropdown menu by appending a <code>bs-dropdown</code> attribute.</p>
         <div class="bs-docs-example">
           <a href="//plnkr.co/edit/ywCmR5wcMpZElwE5Qk9S?p=preview" target="_blank" class="btn btn-small btn-plnkr"><i class="icon-pencil"></i> Edit in plunker</a>
-          <pre>dropdown: {{dropdown | json}}</pre>
+          <pre>$scope.dropdown: {{dropdown | json}}</pre>
           <div class="well">
             <div class="btn-group">
               <button type="button" class="btn" bs-dropdown="dropdown">Dropdown <b class="caret"></b></button>
