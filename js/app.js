@@ -32,10 +32,11 @@ $(function() {
 
 var app = angular.module('strap', ['$strap.directives']);
 
-app.controller('StrapCtrl', function($scope) {
+app.controller('StrapCtrl', function($scope, $window) {
+	$scope.$alert = $window.alert.bind(null);
 	$scope.dropdown = [
 		{text: 'Another action', href: '#anotherAction'},
-		{text: 'Something else here', href: '#', click: 'modal.saved=true'},
+		{text: 'Something else here', click: "$alert('working ngClick!')"},
 		{divider: true},
 		{text: 'Separated link', href: '#',
 			submenu: [
@@ -44,9 +45,14 @@ app.controller('StrapCtrl', function($scope) {
 			]
 		}
 	];
-	$scope.formattedDropdown = "[\n  {text: 'Another action', href:'#anotherAction'},\n  {text: 'Something else here', href:'#'},\n  {divider: true},\n  {text: 'Separated link', href:'#', submenu: [\n    {text: 'Second level link', href: '#'},\n    {text: 'Second level link 2', href: '#'}\n  ]}\n]";
 	$scope.modal = {content: 'Hello Modal', saved: false};
 	$scope.tab = {title:'About', content: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'}
+	$scope.tabs = [
+    {title:'Home', content: 'Raw denim you probably haven\'t heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.'},
+    {title:'Profile', content: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'},
+    {title:'About', content: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'}
+  ];
+	$scope.tabs.activeTab = 1;
 	$scope.tooltip = {title: "Hello Tooltip<br />This is a multiline message!", checked: false};
 	$scope.popover = {content: "Hello Popover<br />This is a multiline message!", saved: false};
 	$scope.alerts = [{type:'success', title: 'Holy guacamole!', content: 'Best check yo self, you\'re not looking too good.<br><br><pre>2 + 3 = {{ 2 + 3 }}</pre>'}];

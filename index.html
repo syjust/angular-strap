@@ -85,8 +85,8 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         </button>
         <!-- <a id="get-started-btn" class="btn btn-small" bs-popover="'get-started'" data-title="Get Started" data-class="modal-wide" data-placement="bottom"><i class="icon-download-alt icon-white"></i>&nbsp;get started</small></a> -->
         <div class="btn-toolbar btn-group pull-right">
-          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.7.0)</small></a>
-          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.min.js"><i class="icon-download-alt icon-white"></i>&nbsp;prod <small>(3.9K)</small></a>
+          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.7.1)</small></a>
+          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.min.js"><i class="icon-download-alt icon-white"></i>&nbsp;prod <small>(4.1K)</small></a>
         </div>
         <a class="travis-btn" href="//travis-ci.org/#!/mgcrea/angular-strap" target="_blank">
           <img src="//secure.travis-ci.org/mgcrea/angular-strap.png?branch=master"/>
@@ -235,7 +235,7 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         <p>Toggleable, contextual menu for displaying lists of links.</p>
         <p>Use any element to trigger a dropdown menu by appending a <code>bs-dropdown</code> attribute.</p>
         <div class="bs-docs-example">
-          <pre>dropdown: {{formattedDropdown}}</pre>
+          <pre>dropdown: {{dropdown | json}}</pre>
           <div class="well">
             <div class="btn-group">
               <button type="button" class="btn" bs-dropdown="dropdown">Dropdown <b class="caret"></b></button>
@@ -312,7 +312,7 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         <h3>Markup-driven tabs</h3>
         <p>Use the <code>data-title</code> attribute on children divs to initialize the tab title.</p>
         <div class="bs-docs-example">
-          <pre>tab: {{singleTab | json}}</pre>
+          <pre>tab: {{tab | json}}</pre>
           <div data-fade="1" bs-tabs>
             <div data-title="'Home'">
               <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p>
@@ -320,8 +320,8 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
             <div data-title="'Profile'">
               <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.</p>
             </div>
-            <div data-title="singleTab.title">
-              <p>{{singleTab.content}}</p>
+            <div data-title="tab.title">
+              <p>{{tab.content}}</p>
             </div>
           </div>
         </div>
@@ -341,11 +341,11 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         <p>Use the <code>{title: "Home", content: "Raw denim you ..."}</code> attribute on children divs to initialize the tab title.</p>
         <div class="bs-docs-example">
           <pre>tabs: {{tabs | json}}</pre>
-          <div data-fade="1" ng-model="tab.activeTab" bs-tabs="tabs"></div>
+          <div data-fade="1" ng-model="tabs.activeTab" bs-tabs="tabs"></div>
           <br>
           <div class="well">
-            <code>tab.activeTab=<span>{{tab.activeTab}}</span></code>
-            <div class="btn-group" ng-model="tab.activeTab" bs-buttons-radio>
+            <code>tabs.activeTab=<span>{{tabs.activeTab}}</span></code>
+            <div class="btn-group" ng-model="tabs.activeTab" bs-buttons-radio>
               <button type="button" class="btn btn-primary" value="0">First</button>
               <button type="button" class="btn btn-primary" value="1">Second</button>
               <button type="button" class="btn btn-primary" value="2">Third</button>
