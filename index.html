@@ -316,7 +316,8 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         <h3>Markup-driven tabs</h3>
         <p>Use the <code>data-title</code> attribute on children divs to initialize the tab title.</p>
         <div class="bs-docs-example">
-          <pre>tab: {{tab | json}}</pre>
+          <a href="//plnkr.co/edit/3C9vTbdhLRGo3X2Nu0yw?p=preview" target="_blank" class="btn btn-small btn-plnkr"><i class="icon-pencil"></i> Edit in plunker</a>
+          <pre>$scope.tab: {{tab | json}}</pre>
           <div data-fade="1" bs-tabs>
             <div data-title="'Home'">
               <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p>
@@ -342,9 +343,10 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         </div>
 
         <h3>Object-driven tabs</h3>
-        <p>Use the <code>{title: "Home", content: "Raw denim you ..."}</code> attribute on children divs to initialize the tab title.</p>
+        <p>Add the <code>bs-tabs</code> attribute targeting a javascript object <code>[{title: "Home", content: "Raw denim you ..."}, ...]</code></p>
         <div class="bs-docs-example">
-          <pre>tabs: {{tabs | json}}</pre>
+          <a href="//plnkr.co/edit/3C9vTbdhLRGo3X2Nu0yw?p=preview" target="_blank" class="btn btn-small btn-plnkr"><i class="icon-pencil"></i> Edit in plunker</a>
+          <pre>$scope.tabs: {{tabs | json}}</pre>
           <div data-fade="1" ng-model="tabs.activeTab" bs-tabs="tabs"></div>
           <br>
           <div class="well">
