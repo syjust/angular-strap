@@ -632,7 +632,7 @@ $scope.typeaheadFn = function(query, callback) {
         </div>
         <h2>Overview and examples</h2>
         <p>Directive for bootstrap-datepicker (made by <a href="https://github.com/eternicode/bootstrap-datepicker" target="_blank">Stefan Petre</a>).</p>
-        <p>Use any button/link to trigger a datepicker menu by appending a <code>bs-datepicker</code> attribute.</p>
+        <p>Add a datepicker to an input by appending a <code>bs-datepicker</code> attribute.</p>
         <p>✓ Supports AngularJS validation out of the box.</p>
         <div class="bs-docs-example">
           <pre style="min-height: 60px;">datepicker: {{datepicker | json}}<!--<br />myForm: {{myForm | json}}--></pre>
@@ -660,7 +660,7 @@ app.value('$strap.config', {
         </pre>
         <div class="alert alert-info">
           <strong>Heads up!</strong>
-          You can use a custom button as a toggle with <code>data-toggle="datepicker"</code> on a sibling element.
+          You can use a custom button or add-on as a toggle with <code>data-toggle="datepicker"</code> on a sibling element.
         </div>
       </section>
 
@@ -670,7 +670,8 @@ app.value('$strap.config', {
         </div>
         <h2>Overview and examples</h2>
         <p>Directive for bootstrap-timepicker (made by <a href="https://github.com/jdewit" target="_blank">jdewit</a>).</p>
-        <p>Use any button/link to trigger a timepicker menu by appending a <code>bs-timepicker</code> attribute.</p>
+        <p>Add a timepicker to an input by appending a <code>bs-timepicker</code> attribute.</p>
+        <p>Use any button/link to show a timepicker menu by appending a <code>data-toggle="timepicker"</code> attribute to a sibling element.</p>
         <p>✓ Supports AngularJS validation out of the box.</p>
         <div class="bs-docs-example">
           <pre style="min-height: 60px;">timepicker: {{timepicker | json}}<!--<br />myForm: {{myForm | json}}--></pre>
@@ -689,6 +690,10 @@ app.value('$strap.config', {
   &lt;i class="icon-time" style="position: relative;margin: 2.5px 0 0 -24px;"&gt;&lt;/i&gt;
 &lt;/div&gt;
         </pre>
+        <div class="alert alert-info">
+          <strong>Heads up!</strong>
+          You can use a custom button or add-on as a toggle with <code>data-toggle="timepicker"</code> on a sibling element.
+        </div>
       </section>
 
     </div>
