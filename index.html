@@ -228,6 +228,11 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
           <strong>Heads up!</strong>
           You can use <code>ng-controller="MyModalCtrl"</code> alongside <code>bs-modal="..."</code> to spawn a controller with a custom scope for your modal.
         </div>
+        <h3>$modal Service</h3>
+        <p>AngularStrap ships with a <code>$modal</code> service that you can inject in your controllers to trigger modals.</p>
+        <pre class="prettyprint linenums" ng-non-bindable>
+var modal = $modal({template: '/js/app/views/elements/modal-welcome.html', show: true, backdrop: 'static'});
+        </pre>
       </section>
 
       <section id="dropdown">
