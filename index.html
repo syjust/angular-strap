@@ -617,6 +617,7 @@ $scope.typeaheadFn = function(query, callback) {
         <p><i class="icon-flag"></i>&nbsp;Requires <code><a href="vendor/bootstrap-select.js">bootstrap-select.js</a></code> & <code><a href="vendor/bootstrap-select.css">bootstrap-select.css</a></code>.</p>
         <h3>Simple selects</h3>
         <div class="bs-docs-example">
+          <a href="//plnkr.co/edit/T1D3wF88RYqk5x77MJDT?p=preview" target="_blank" class="btn btn-small btn-plnkr"><i class="icon-pencil"></i> Edit in plunker</a>
           <pre>$scope.selects: {{selects | json}}</pre>
           <pre>$scope.selectedItem: {{selectedItem | json}}</pre>
           <div class="well">
@@ -645,7 +646,6 @@ $scope.typeaheadFn = function(query, callback) {
 &lt;select class="span4" ng-model="selectedItem" multiple title="Choose one of the following..." ng-options="value.id as value.name for (key, value) in selects" data-style="btn-primary" bs-select&gt;&lt;/select&gt;
         </pre>
       </section>
-          <!--  -->
 
       <section id="datepicker">
         <div class="page-header">

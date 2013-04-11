@@ -42,6 +42,7 @@ app.controller('StrapCtrl', function($scope, $window, $location) {
   $scope.popover = {content: "Hello Popover<br />This is a multiline message!", saved: false};
 
 	// Select directive
+  // http://plnkr.co/edit/T1D3wF88RYqk5x77MJDT?p=preview
   $scope.selects = [
     {id: '1', name: '<i class="icon-star"></i>&nbsp;foo'},
     {id: '2', name: '<i class="icon-heart"></i>&nbsp;bar'},
@@ -49,7 +50,7 @@ app.controller('StrapCtrl', function($scope, $window, $location) {
   ];
   $scope.selectedItem = '1';
   $scope.selectedItems = ['1'];
-  $scope.pushSelect = function() { $scope.selects.push({id: '' + ($scope.selects.length + 1), name: '<i class="icon-globe"></i>&nbsp;qux' }); }
+  $scope.pushSelect = function() { $scope.selects.push({id: '' + ($scope.selects.length + 1), name: '<i class="icon-globe"></i>&nbsp;qux' }); };
 
 	$scope.alerts = [{type:'success', title: 'Holy guacamole!', content: 'Best check yo self, you\'re not looking too good.<br><br><pre>2 + 3 = {{ 2 + 3 }}</pre>'}];
 	$scope.addAlert = function() { $scope.alerts.push({type: 'info', title: 'Heads up!', content: 'To prevent databinding issues, <em>"the rule of thumb is, if you﻿ use <code>ng-model</code> there has to be a dot somewhere." Miško Hevery</em>'}); };
