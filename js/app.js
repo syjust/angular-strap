@@ -31,7 +31,7 @@ app.controller('StrapCtrl', function($scope, $window, $location) {
     {title:'Profile', content: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'},
     {title:'About', content: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'}
   ];
-	$scope.activeTab = 1;
+  $scope.tabs.activeTab = 1;
 
 	// Select directive
   $scope.selects = [
