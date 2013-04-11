@@ -133,6 +133,12 @@ body > .navbar .travis-btn {
 .page-header h1 > small > a:hover {
   text-decoration: none;
 }
+.bootstrap-select .btn:focus {
+  outline: none !important;
+}
+.bootstrap-select .btn-primary i {
+  background-image: url("../img/glyphicons-halflings-white.png");
+}
 /* AngularJS Forms Validation
 -------------------------------------------------- */
 input.ng-invalid,

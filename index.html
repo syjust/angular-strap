@@ -23,6 +23,7 @@
   <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
   <link href="vendor/bootstrap-datepicker.css" rel="stylesheet">
   <link href="vendor/bootstrap-timepicker.css" rel="stylesheet">
+  <link href="vendor/bootstrap-select.css" rel="stylesheet">
   <link href="css/prettify.css" rel="stylesheet">
   <link href="css/animate.css" rel="stylesheet">
   <link href="css/docs.css" rel="stylesheet">
@@ -39,16 +40,17 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
   <!--<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.3.1/less.min.js"></script>-->
   <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
 
   <script src="vendor/bootstrap-datepicker.js"></script>
   <script src="vendor/bootstrap-timepicker.js"></script>
+  <script src="vendor/bootstrap-select.js"></script>
   <script src="js/fastclick.min.js"></script>
-  <script src="js/angular-strap.min.js?v=0.7.1"></script>
+  <script src="js/angular-strap.min.js?v=0.7.2"></script>
 
-  <script src="js/app.js?v=0.7.1"></script>
+  <script src="js/app.js?v=0.7.2"></script>
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -85,7 +87,7 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         </button>
         <!-- <a id="get-started-btn" class="btn btn-small" bs-popover="'get-started'" data-title="Get Started" data-class="modal-wide" data-placement="bottom"><i class="icon-download-alt icon-white"></i>&nbsp;get started</small></a> -->
         <div class="btn-toolbar btn-group pull-right">
-          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.7.1)</small></a>
+          <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.js"><i class="icon-download-alt icon-white"></i>&nbsp;dev <small>(v0.7.2)</small></a>
           <a class="btn btn-small btn-inverse" href="//raw.github.com/mgcrea/angular-strap/master/dist/angular-strap.min.js"><i class="icon-download-alt icon-white"></i>&nbsp;prod <small>(4.1K)</small></a>
         </div>
         <a class="travis-btn" href="//travis-ci.org/#!/mgcrea/angular-strap" target="_blank">
@@ -159,6 +161,7 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         <li><a href="#checkboxes"><i class="icon-chevron-right"></i> Checkboxes</a></li>
         <li><a href="#radios"><i class="icon-chevron-right"></i> Radios</a></li>
         <li><a href="#typeahead"><i class="icon-chevron-right"></i> Typeahead</a></li>
+        <li><a href="#select"><i class="icon-chevron-right"></i> Select</a></li>
         <li><a href="#datepicker"><i class="icon-chevron-right"></i> Datepicker</a></li>
         <li><a href="#timepicker"><i class="icon-chevron-right"></i> Timepicker</a></li>
       </ul>
@@ -311,55 +314,17 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
         </div>
         <h2>Overview and examples</h2>
         <p>Create tabs interfaces by appending a <code>bs-tabs</code> attribute to a div container.</p>
-        <p>You can either use plain static/dynamic html markup or a pure javascript object.</p>
-
-        <h3>Markup-driven tabs</h3>
-        <p>Use the <code>data-title</code> attribute on children divs to initialize the tab title.</p>
-        <div class="bs-docs-example">
-          <a href="//plnkr.co/edit/3C9vTbdhLRGo3X2Nu0yw?p=preview" target="_blank" class="btn btn-small btn-plnkr"><i class="icon-pencil"></i> Edit in plunker</a>
-          <pre>$scope.tab: {{tab | json}}</pre>
-          <div data-fade="1" bs-tabs>
-            <div data-title="'Home'">
-              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p>
-            </div>
-            <div data-title="'Profile'">
-              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.</p>
-            </div>
-            <div data-title="tab.title">
-              <p>{{tab.content}}</p>
-            </div>
-          </div>
-        </div>
-        <pre class="prettyprint linenums" ng-non-bindable>
-&lt;div data-fade="1" bs-tabs&gt;
-  &lt;div data-title="'Home'"&gt;&lt;p&gt;Static tab content A&lt;/p&gt;&lt;/div&gt;
-  &lt;div data-title="'Profile'"&gt;&lt;p&gt;Static tab content B&lt;/p&gt;&lt;/div&gt;
-  &lt;div data-title="tab.title"&gt;&lt;p&gt;{{tab.content}}&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-        </pre>
-        <div class="alert alert-info">
-          <strong>Heads up!</strong>
-          You can use fading tabs with an optional <code>data-fade</code> attribute.
-        </div>
-
-        <h3>Object-driven tabs</h3>
-        <p>Add the <code>bs-tabs</code> attribute targeting a javascript object <code>[{title: "Home", content: "Raw denim you ..."}, ...]</code></p>
         <div class="bs-docs-example">
           <a href="//plnkr.co/edit/3C9vTbdhLRGo3X2Nu0yw?p=preview" target="_blank" class="btn btn-small btn-plnkr"><i class="icon-pencil"></i> Edit in plunker</a>
           <pre>$scope.tabs: {{tabs | json}}</pre>
-          <div data-fade="1" ng-model="tabs.activeTab" bs-tabs="tabs"></div>
-          <br>
-          <div class="well">
-            <code>tabs.activeTab=<span>{{tabs.activeTab}}</span></code>
-            <div class="btn-group" ng-model="tabs.activeTab" bs-buttons-radio>
-              <button type="button" class="btn btn-primary" value="0">First</button>
-              <button type="button" class="btn btn-primary" value="1">Second</button>
-              <button type="button" class="btn btn-primary" value="2">Third</button>
-            </div>
+          <div data-fade="1" ngModel="activeTab" bs-tabs>
+            <div ng-repeat="tab in tabs" data-title="{{tab.title}}"><p>{{tab.content}}</p></div>
           </div>
         </div>
         <pre class="prettyprint linenums" ng-non-bindable>
-&lt;div data-fade="1" ng-model="tabs.activeTab" bs-tabs="tabs"&gt;&lt;/div&gt;
+&lt;div data-fade="1" ngModel="activeTab" bs-tabs&gt;
+  &lt;div ng-repeat="tab in tabs" data-title="{{tab.title}}"&gt;&lt;p&gt;{{tab.content}}&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
         </pre>
         <div class="alert alert-info">
           <strong>Heads up!</strong>
@@ -626,14 +591,55 @@ $scope.typeaheadFn = function(query, callback) {
         </div>
      </section>
 
+      <section id="select">
+        <div class="page-header">
+          <h1>Select <small><a href="//github.com/mgcrea/angular-strap/blob/master/src/directives/select.js" target="_blank">directives/select.js</a></small></h1>
+        </div>
+        <h2>Overview and examples</h2>
+        <p>Directive for <a href="https://github.com/silviomoreto/bootstrap-select" target="_blank">bootstrap-select</a> (made by <a href="https://github.com/silviomoreto" target="_blank">Silvio Moreto</a>).</p>
+        <p>Append a <code>bs-select</code> attribute to enable bootstrap-select on a regular Angular select.</p>
+        <p><i class="icon-flag"></i>&nbsp;Requires <code><a href="vendor/bootstrap-select.js">bootstrap-select.js</a></code> & <code><a href="vendor/bootstrap-select.css">bootstrap-select.css</a></code>.</p>
+        <h3>Simple selects</h3>
+        <div class="bs-docs-example">
+          <pre>$scope.selects: {{selects | json}}</pre>
+          <pre>$scope.selectedItem: {{selectedItem | json}}</pre>
+          <div class="well">
+            <select class="span2" ng-model="selectedItem" ng-options="value.id as value.name for (key, value) in selects" data-style="btn-primary" bs-select></select>
+            <hr>
+            <div class="btn-group" ng-model="selectedItem" bs-buttons-radio>
+              <button ng-repeat="(key, value) in selects" type="button" class="btn" value="{{value.id}}" ng-bind-html-unsafe="value.name"></button>
+            </div>
+            <button type="button" class="btn" ng-click="pushSelect()"><i class="icon-plus"></i>&nbsp;add item</button>
+          </div>
+        </div>
+        <pre class="prettyprint linenums">
+&lt;select class="span2" ng-model="selectedItem" ng-options="value.id as value.name for (key, value) in selects" data-style="btn-primary" bs-select&gt;&lt;/select&gt;
+        </pre>
+        <h3>Multiple selects</h3>
+        <div class="bs-docs-example">
+          <pre>$scope.selects: {{selects | json}}</pre>
+          <pre>$scope.selectedItems: {{selectedItems | json}}</pre>
+          <div class="well">
+            <select class="span4" ng-model="selectedItems" multiple title="Choose one of the following..." ng-options="value.id as value.name for value in selects" data-style="btn-primary" bs-select></select>
+            <hr>
+            <button type="button" class="btn" ng-click="pushSelect()"><i class="icon-plus"></i>&nbsp;add item</button>
+          </div>
+        </div>
+        <pre class="prettyprint linenums">
+&lt;select class="span4" ng-model="selectedItem" multiple title="Choose one of the following..." ng-options="value.id as value.name for (key, value) in selects" data-style="btn-primary" bs-select&gt;&lt;/select&gt;
+        </pre>
+      </section>
+          <!--  -->
+
       <section id="datepicker">
         <div class="page-header">
           <h1>Datepicker <small><a href="//github.com/mgcrea/angular-strap/blob/master/src/directives/datepicker.js" target="_blank">directives/datepicker.js</a></small></h1>
         </div>
         <h2>Overview and examples</h2>
-        <p>Directive for bootstrap-datepicker (made by <a href="https://github.com/eternicode/bootstrap-datepicker" target="_blank">Stefan Petre</a>).</p>
+        <p>Directive for <a href="https://github.com/eternicode/bootstrap-datepicker" target="_blank">bootstrap-datepicker</a> (made by <a href="https://github.com/eternicode" target="_blank">Stefan Petre</a>).</p>
+        <p><i class="icon-flag"></i>&nbsp;Requires <code><a href="vendor/bootstrap-datepicker.js">bootstrap-datepicker.js</a></code> & <code><a href="vendor/bootstrap-datepicker.css">bootstrap-datepicker.css</a></code>.</p>
         <p>Add a datepicker to an input by appending a <code>bs-datepicker</code> attribute.</p>
-        <p>✓ Supports AngularJS validation out of the box.</p>
+        <p><i class="icon-ok"></i>&nbsp;Supports AngularJS validation out of the box.</p>
         <div class="bs-docs-example">
           <pre style="min-height: 60px;">datepicker: {{datepicker | json}}<!--<br />myForm: {{myForm | json}}--></pre>
           <form class="form-horizontal well" name="myForm">
@@ -669,10 +675,10 @@ app.value('$strap.config', {
           <h1>Timepicker <small><a href="//github.com/mgcrea/angular-strap/blob/master/src/directives/timepicker.js" target="_blank">directives/timepicker.js</a></small></h1>
         </div>
         <h2>Overview and examples</h2>
-        <p>Directive for bootstrap-timepicker (made by <a href="https://github.com/jdewit" target="_blank">jdewit</a>).</p>
+        <p>Directive for <a href="https://github.com/jdewit/bootstrap-timepicker" target="_blank">bootstrap-timepicker</a> (made by <a href="https://github.com/jdewit" target="_blank">jdewit</a>).</p>
+        <p><i class="icon-flag"></i>&nbsp;Requires <code><a href="vendor/bootstrap-timepicker.js">bootstrap-timepicker.js</a></code> & <code><a href="vendor/bootstrap-timepicker.css">bootstrap-timepicker.css</a></code>.</p>
         <p>Add a timepicker to an input by appending a <code>bs-timepicker</code> attribute.</p>
-        <p>Use any button/link to show a timepicker menu by appending a <code>data-toggle="timepicker"</code> attribute to a sibling element.</p>
-        <p>✓ Supports AngularJS validation out of the box.</p>
+        <p><i class="icon-ok"></i>&nbsp;Supports AngularJS validation out of the box.</p>
         <div class="bs-docs-example">
           <pre style="min-height: 60px;">timepicker: {{timepicker | json}}<!--<br />myForm: {{myForm | json}}--></pre>
           <form class="form-horizontal well" name="myForm">
