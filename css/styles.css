@@ -136,9 +136,9 @@ body > .navbar .travis-btn {
 .bootstrap-select .btn:focus {
   outline: none !important;
 }
-.bootstrap-select .btn-primary i {
+/*.bootstrap-select .btn-primary i {
   background-image: url("../img/glyphicons-halflings-white.png");
-}
+}*/
 /* AngularJS Forms Validation
 -------------------------------------------------- */
 input.ng-invalid,
