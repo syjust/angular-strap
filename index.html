@@ -711,11 +711,12 @@ app.value('$strap.config', {
           </form>
         </div>
         <pre class="prettyprint linenums">
-&lt;div class="control-group"&gt;
+&lt;div class="control-group input-append"&gt;
   &lt;input type="text" ng-model="timepicker.time" bs-timepicker&gt;
-  &lt;i class="icon-time" style="position: relative;margin: 2.5px 0 0 -24px;"&gt;&lt;/i&gt;
+  &lt;button type="button" class="btn" data-toggle="timepicker"&gt;&lt;i class="icon-time"&gt;&lt;/i&gt;&lt;/buttoni&gt;
 &lt;/div&gt;
         </pre>
+<!-- &lt;i class="icon-time" style="position: relative;margin: 2.5px 0 0 -24px;"&gt;&lt;/i&gt; -->
         <div class="alert alert-info">
           <strong>Heads up!</strong>
           You can use a custom button or add-on as a toggle with <code>data-toggle="timepicker"</code> on a sibling element.
