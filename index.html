@@ -45,10 +45,10 @@
   <!--<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.3.1/less.min.js"></script>-->
   <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
 
-  <script src="vendor/bootstrap-datepicker.js"></script>
-  <script src="vendor/bootstrap-timepicker.js"></script>
-  <script src="vendor/bootstrap-select.js"></script>
-  <script src="js/fastclick.min.js"></script>
+  <script src="vendor/bootstrap-datepicker.js?r=0.7.2"></script>
+  <script src="vendor/bootstrap-timepicker.js?r=0.7.2"></script>
+  <script src="vendor/bootstrap-select.js?r=0.7.2"></script>
+  <script src="js/fastclick.min.js?v=0.6.3"></script>
   <script src="js/angular-strap.min.js?v=0.7.2"></script>
 
   <script src="js/app.js?v=0.7.2"></script>
@@ -660,10 +660,10 @@ $scope.typeaheadFn = function(query, callback) {
         <p><i class="icon-ok"></i>&nbsp;Supports AngularJS validation out of the box.</p>
         <div class="bs-docs-example">
           <pre style="min-height: 60px;">datepicker: {{datepicker | json}}<!--<br />myForm: {{myForm | json}}--></pre>
-          <form class="form-horizontal well" name="myForm">
+          <form class="form-horizontal well">
             <div class="control-group input-append">
-              <label class="label" style="margin-right:6px;">date</label>
-              <input name="date" class="input-small" type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker>
+              <label for="inputDatepicker" class="label" style="margin-right:6px;">date</label>
+              <input id="inputDatepicker" class="input-small" type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker>
               <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
             </div>
           </form>
@@ -699,12 +699,14 @@ app.value('$strap.config', {
         <p><i class="icon-ok"></i>&nbsp;Supports AngularJS validation out of the box.</p>
         <div class="bs-docs-example">
           <pre style="min-height: 60px;">timepicker: {{timepicker | json}}<!--<br />myForm: {{myForm | json}}--></pre>
-          <form class="form-horizontal well" name="myForm">
-            <label class="label">time</label>
-            <div class="control-group" style="display:inline-block;">
-              <input type="text" class="input-small" ng-model="timepicker.time" bs-timepicker>
-              <!-- <span class="add-on"><i class="icon-time"></i></span> -->
-              <i class="icon-time" style="position: relative; margin: 2.5px 0 0 -24px;"></i>
+          <form class="form-horizontal well">
+            <div class="control-group">
+              <label for="inputTimepicker" class="label" style="margin-right:6px;">time</label>
+              <div class="input-append">
+                <input id="inputTimepicker" type="text" class="input-small" ng-model="timepicker.time" bs-timepicker>
+                <!-- <i class="icon-time" style="position: relative; margin: 2.5px 0 0 -24px;"></i> -->
+                <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i></button>
+              </div>
             </div>
           </form>
         </div>
