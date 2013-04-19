@@ -136,6 +136,9 @@ body > .navbar .travis-btn {
 .bootstrap-select .btn:focus {
   outline: none !important;
 }
+.bs-docs-sidenav .active .icon-chevron-right, .bs-docs-sidenav .active a:hover .icon-chevron-right {
+  background-image: none !important;
+}
 /*.bootstrap-select .btn-primary i {
   background-image: url("../img/glyphicons-halflings-white.png");
 }*/
