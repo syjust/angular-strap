@@ -222,7 +222,6 @@ angular.module('$strap.directives').directive('bsButtonSelect', [
           value = ctrl ? scope.$eval(attrs.ngModel) : element.text();
           index = values.indexOf(value);
           newValue = index > values.length - 2 ? values[0] : values[index + 1];
-          console.warn(values, newValue);
           scope.$apply(function () {
             element.text(newValue);
             if (ctrl) {
@@ -585,7 +584,7 @@ angular.module('$strap.directives').directive('bsPopover', [
             'hide'
           ], function (name) {
             scope[name] = function () {
-              popover(name);
+              popover[name]();
             };
           });
           scope.dismiss = scope.hide;
@@ -685,7 +684,6 @@ angular.module('$strap.directives').directive('bsTabs', [
               activeTab = newValue;
               setTimeout(function () {
                 var $next = $($tabs[0].querySelectorAll('li')[newValue * 1]);
-                console.warn($next);
                 if (!$next.hasClass('active')) {
                   $next.children('a').tab('show');
                 }
