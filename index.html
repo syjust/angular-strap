@@ -204,7 +204,7 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
           <pre>$scope.modal: {{modal | json}}</pre>
           <div class="well">
             <button type="button" class="btn btn-large btn-primary" bs-modal="'partials/modal.html'">Click to open modal</button>
-            &nbsp;<button type="button" class="btn btn-large" ng-click="modalService()">With $modal service</button>
+            &nbsp;<button type="button" class="btn btn-large" ng-click="showModalViaService()">With $modal service</button>
           </div>
         </div>
         <pre class="prettyprint linenums" ng-non-bindable>
@@ -231,9 +231,17 @@ var app = angular.module('angularjs-starter', ['$strap.directives']);
           You can use $modal functions <code>(show, hide, $modal)</code> out of its scope by passing them: <code>ng-click="someScopeFunction($modal)"</code>.
         </div>
         <h3>$modal Service</h3>
-        <p>AngularStrap ships with a <code>$modal</code> service that you can inject in your controllers to trigger modals.</p>
+        <p>AngularStrap ships with a <code>$modal</code> service that you can inject in your controllers to trigger modals in a more efficient way (ie. inside <code>ng-repeat</code>, etc.).</p>
         <pre class="prettyprint linenums" ng-non-bindable>
-var modal = $modal({template: '/js/app/views/elements/modal-welcome.html', show: true, backdrop: 'static'});
+// Create modal (returns a promise since it may have to perform an http request)
+var modalPromise = $modal({template: '/js/app/views/elements/modal-welcome.html', persist: true, show: false, backdrop: 'static', scope: $scope});
+
+// Toggle modal
+$scope.showModalViaService = function() {
+  $q.when(modalPromise).then(function(modalEl) {
+    modalEl.modal('show');
+  });
+};
         </pre>
       </section>
 

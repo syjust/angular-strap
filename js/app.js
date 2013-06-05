@@ -16,7 +16,7 @@ app.controller('StrapCtrl', function($scope, $window, $q, $location, $modal) {
     backdrop: 'static',
     scope: $scope
   });
-  $scope.modalService = function() {
+  $scope.showModalViaService = function() {
     $q.when(modalPromise).then(function(modalEl) {
       modalEl.modal('show');
     });
