@@ -2,19 +2,23 @@
 
 var app = angular.module('strap', ['$strap.directives']);
 
-app.controller('StrapCtrl', function($scope, $window, $location, $modal) {
+app.controller('StrapCtrl', function($scope, $window, $q, $location, $modal) {
 
   $scope.$alert = $window.alert.bind(null);
 
   // Modal directive
   // http://plnkr.co/edit/xKP5PW3Dco1CczmCuuVN?p=preview
   $scope.modal = {content: 'Hello Modal', saved: false};
+  var modalPromise = $modal({
+    template: 'partials/modal.html',
+    persist: true,
+    show: false,
+    backdrop: 'static',
+    scope: $scope
+  });
   $scope.modalService = function() {
-    var modal = $modal({
-      template: 'partials/modal.html',
-      show: true,
-      backdrop: 'static',
-      scope: $scope
+    $q.when(modalPromise).then(function(modalEl) {
+      modalEl.modal('show');
     });
   };
 
